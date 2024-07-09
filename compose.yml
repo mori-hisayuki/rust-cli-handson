@@ -1,0 +1,18 @@
+services:
+  rust-app:
+    build:
+      context: .
+      dockerfile: ./docker/rust/Dockerfile
+    volumes:
+      - .:/develop
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    tty: true
+  cargo:
+    build:
+      context: .
+      dockerfile: ./docker/cargo/Dockerfile
+    working_dir: /develop
+    volumes:
+      - .:/develop

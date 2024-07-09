@@ -1,0 +1,30 @@
+version: 3
+env:
+  COMPOSE: docker-compose
+
+tasks:
+  setup:
+    deps: [container-build, up]
+    cmds:
+      - echo 'setup done'
+  container-build:
+    internal: true
+    cmd: $COMPOSE build
+  up:
+    internal: true
+    cmd: $COMPOSE up -d
+  down:
+    cmd: $COMPOSE down
+  # cargo run
+  run:
+    # CLI_ARGSはtaskfileの特殊変数
+    # https://taskfile.dev/api/#special-variables
+    cmd: $COMPOSE run --rm cargo cargo run $(if [ -n "{{.CLI_ARGS}}" ]; then echo --bin {{.CLI_ARGS}}; fi)
+  lint:
+    # --fix: clippyの自動修正オプション
+    cmd: $COMPOSE run --rm cargo cargo clippy {{.CLI_ARGS}}
+  fmt:
+    cmd: $COMPOSE run --rm cargo cargo fmt {{.CLI_ARGS}}
+  # rust環境に入りたいときのみ
+  bash:
+    cmd: $COMPOSE exec rust-app bash
