@@ -1,0 +1,5 @@
+# rust format settings
+# rustfmt 1.7.0-stable (129f3b99 2024-06-10)
+#
+# https://rust-lang.github.io/rustfmt/?version=v1.7.1&search=
+tab_spaces = 2

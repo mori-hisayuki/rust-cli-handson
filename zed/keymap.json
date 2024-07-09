@@ -1,0 +1,38 @@
+[
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "up": null,
+      "down": null,
+      "left": null,
+      "right": null,
+      "backspace": null,
+      "ctrl-h": "pane::ActivatePrevItem",
+      "ctrl-l": "pane::ActivateNextItem"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j j": ["vim::NormalBefore", "Save"],
+      "ctrl-d": "editor::Backspace",
+      "ctrl-h": "editor::MoveLeft",
+      "ctrl-l": "editor::MoveRight",
+      "up": null,
+      "down": null,
+      "left": null,
+      "right": null,
+      "backspace": null
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "up": null,
+      "down": null,
+      "left": null,
+      "right": null,
+      "backspace": null
+    }
+  }
+]
