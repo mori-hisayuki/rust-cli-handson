@@ -3,6 +3,8 @@ name = "sl-rust"
 version = "0.1.0"
 edition = "2021"
 
+# https://crates.io/
 [dependencies]
+clap = { version = "4.5.9", features = ["derive"] }
 crossterm = "0.27.0"
 ctrlc = "3.4.4"
